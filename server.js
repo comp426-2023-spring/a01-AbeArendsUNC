@@ -8,19 +8,15 @@ const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 3000 if there is no argument given for `--port`.
-var x = 3000;
-if(argv['port'] != undefined) {
-    x = argv['port'];
-}
-const port = x;
-const hostname = '127.0.0.1';
+const port = argv['port'] || 3000;
+const hostname = '127.0.0.1'; // no clue how to do this w/o hostname
 // Use the fs module to create an arrow function using `fs.readFile`.
 // Use the documentation for the Node.js `fs` module. 
 // The function must read a file located at `./public/index.html` and do some stuff with it.
 // The stuff that should be inside this function is all below.
 // If there is an error, put it on the console error and return. 
 // Do not be nice about exiting.
-let data = '';
+let data = ''; // declare data then attribute data from index.html to it
 try {
     data = fs.readFileSync('./public/index.html', 'utf8');
 } catch (err) {
